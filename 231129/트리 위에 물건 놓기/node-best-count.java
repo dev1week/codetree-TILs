@@ -18,14 +18,14 @@ public class Main {
     
     static List<Integer>[] graph;
     static boolean[] isVisited; 
-    static boolean[] isVisited2; 
+    static int[] parents; 
     
     static void init() throws IOException{
     	n = Integer.valueOf(buffer.readLine());
     	
     	graph = new List[n+1];
     	isVisited = new boolean[n+1]; 
-    	isVisited2 = new boolean[n+1];
+    	parents = new int[n+1];
     	
     	for(int node=0; node<=n; node++) {
     		graph[node] = new ArrayList<>();
@@ -48,23 +48,14 @@ public class Main {
     	
     	
     	makeDp();
-    	int root = 0; 
-    	int value = 0;
-    	for(int node=1; node<=n; node++) {
-    		if(dp[node][0]+dp[node][1]>value) {
-    			root = node;
-    			value = dp[node][0] + dp[node][1];
-    		}
-    	}
     	
-    	System.out.println(Math.min(dp[root][0], dp[root][1]));
+    	System.out.println(Math.min(dp[1][0], dp[1][1]));
     }
     
     static void makeDp() {
     	
     	dp = new int[n+1][2];
-    	isVisited2[1] = true;
-    	isVisited[1] = true; 
+    	isVisited[1] = true;
     	dfs(1);
     }
     
@@ -78,6 +69,7 @@ public class Main {
     		int next = graph[cur].get(i); 
     		if(isVisited[next]) continue; 
     		isVisited[next] = true;
+    		parents[next] = cur;
     		dfs(next); 
     		
  
@@ -85,8 +77,7 @@ public class Main {
     	
     	for(int i=0; i<graph[cur].size(); i++) {
     		int next = graph[cur].get(i); 
-    		if(isVisited2[next]) continue; 
-    		isVisited2[next] = true;
+    		if(parents[next]!=cur)continue;
     		dp[cur][1] += Math.min(dp[next][0], dp[next][1]);
     		dp[cur][0] += dp[next][1];
     		
