@@ -29,7 +29,7 @@ public class Main {
     	isVisited = new boolean[num+1];
     	isVisited[root] = true; 
     	getCentralNode(root);
-    	System.out.println(centralNode); 
+//    	System.out.println(centralNode); 
     	
     	List<Integer> childNodes = graph[centralNode];
 //    	System.out.println("중앙 노드의 자식");
