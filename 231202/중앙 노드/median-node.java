@@ -29,7 +29,7 @@ public class Main {
     	isVisited = new boolean[num+1];
     	isVisited[root] = true; 
     	getCentralNode(root);
-//    	System.out.println(centralNode); 
+    	System.out.println(centralNode); 
     	
     	List<Integer> childNodes = graph[centralNode];
 //    	System.out.println("중앙 노드의 자식");
@@ -37,17 +37,16 @@ public class Main {
     	
     	
     	List<Integer> result = getSubtreeSize(childNodes); 
-    	
+//    	System.out.println("서브트리 크기");
 //    	System.out.println(result); 
+    	
     	
     	int min = 0;
     	int max = 0; 
     	if(result.size()!=0) {
-    		
     	 	min = result.get(0);
         	max = result.get(result.size()-1);
-        	
-        	
+
     	}
     	System.out.println(max-min);
     
@@ -75,8 +74,6 @@ public class Main {
 		int numOfChild = graph[current].size()-1;
 		//루트일 경우 부모가 없으므로 다시 자식노드 개수 +1 
 		if(current==root) numOfChild++; 
-		
-		
 		
 //		System.out.println(current); 
 		if(numOfChild>=2&&centralNode==0) {
@@ -132,6 +129,7 @@ public class Main {
 			int node2 = Integer.valueOf(tokens.nextToken()); 
 			
 			graph[node1].add(node2);
+			graph[node2].add(node1);
 		}
 		
 	}
