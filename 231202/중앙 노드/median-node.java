@@ -17,8 +17,10 @@ public class Main {
     public static void main(String[] args) throws IOException{
     	init(); 
     	
+    	
     	isVisited[root] =true; 
-    	makeTreeDp(root); 
+    	getCentralNode(root);
+    	
     	
 //    	for(int node=0; node<=num; node++) {
 //    		System.out.println(graph[node]); 
@@ -28,7 +30,8 @@ public class Main {
     	
     	isVisited = new boolean[num+1];
     	isVisited[root] = true; 
-    	getCentralNode(root);
+    	makeTreeDp(centralNode); 
+    	
 //    	System.out.println("중앙 노드 "+centralNode); 
 //    	System.out.println("루트" +root);
     	List<Integer> childNodes = graph[centralNode];
@@ -38,8 +41,7 @@ public class Main {
     	
     	
     	List<Integer> result = getSubtreeSize(childNodes); 
-//    	System.out.println("서브트리 크기");
-//    	System.out.println(result); 
+    	
     	
     	
     	int min = 0;
@@ -59,12 +61,12 @@ public class Main {
 		List<Integer> result = new ArrayList<>();
 		
 		for(int childNode : childNodes) {
-			if(dp[centralNode]<=dp[childNode])continue;
+//			if(dp[centralNode]<dp[childNode])continue;
 			result.add(dp[childNode]);
 			
 		}
-		
-		
+//		System.out.println("서브트리 크기");
+//    	System.out.println(result); 
 		Collections.sort(result);
 		
 		return result;
