@@ -29,7 +29,7 @@ public class Main {
     	
     	
     	isVisited = new boolean[num+1];
-    	isVisited[root] = true; 
+    	isVisited[centralNode] = true; 
     	makeTreeDp(centralNode); 
     	
 //    	System.out.println("중앙 노드 "+centralNode); 
