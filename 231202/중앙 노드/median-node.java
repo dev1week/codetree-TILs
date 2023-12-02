@@ -24,15 +24,16 @@ public class Main {
 //    		System.out.println(graph[node]); 
 //    	}
     	
-//    	System.out.println(Arrays.toString(dp));
+    	
     	
     	isVisited = new boolean[num+1];
     	isVisited[root] = true; 
     	getCentralNode(root);
-//    	System.out.println(centralNode); 
-    	
+//    	System.out.println("중앙 노드 "+centralNode); 
+//    	System.out.println("루트" +root);
     	List<Integer> childNodes = graph[centralNode];
 //    	System.out.println("중앙 노드의 자식");
+//    	System.out.println(graph[centralNode]);
 //    	System.out.println(childNodes); 
     	
     	
@@ -58,6 +59,7 @@ public class Main {
 		List<Integer> result = new ArrayList<>();
 		
 		for(int childNode : childNodes) {
+			if(dp[centralNode]<=dp[childNode])continue;
 			result.add(dp[childNode]);
 			
 		}
