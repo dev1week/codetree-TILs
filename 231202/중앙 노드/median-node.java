@@ -69,10 +69,21 @@ public class Main {
 
 
 	private static void getCentralNode(int current) {
+		//자식 노드 개수는 간선 -1 
+		int numOfChild = graph[current].size()-1;
+		//루트일 경우 부모가 없으므로 다시 자식노드 개수 +1 
+		if(current==root) numOfChild++; 
+		
+		
+		
 //		System.out.println(current); 
-		if(graph[current].size()>=2||graph[current].size()==0) {
+		if(numOfChild>=2&&centralNode==0) {
 			centralNode = current; 
-			return; 
+			
+		}
+		
+		if(numOfChild==0&&centralNode==0) {
+			centralNode = current; 
 		}
 		
 		for(int i=0; i<graph[current].size(); i++) {
