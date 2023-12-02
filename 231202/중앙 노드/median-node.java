@@ -40,14 +40,16 @@ public class Main {
     	
 //    	System.out.println(result); 
     	
-    	if(result.size()==0) {
-    		System.out.println(0);
-    	}else {
-    	 	int min = result.get(0);
-        	int max = result.get(result.size()-1);
+    	int min = 0;
+    	int max = 0; 
+    	if(result.size()!=0) {
+    		
+    	 	min = result.get(0);
+        	max = result.get(result.size()-1);
         	
-        	System.out.println(max-min);
+        	
     	}
+    	System.out.println(max-min);
     
     	
     }
