@@ -27,7 +27,7 @@ public class Main {
     	long result = Integer.MAX_VALUE;
     	
     	while(left<=right) {
-    		int mid = (left+right)/2;
+    		long mid = (left+right)/2;
     		
     		if(isPossible(mid)) {
     			right = mid-1;
