@@ -22,9 +22,9 @@ public class Main {
     	n = Long.valueOf(buffer.readLine()); 
     	
     	
-    	int left = 1;
-    	int right = Integer.MAX_VALUE;
-    	int result = Integer.MAX_VALUE;
+    	long left = 1;
+    	long right = Integer.MAX_VALUE;
+    	long result = Integer.MAX_VALUE;
     	
     	while(left<=right) {
     		int mid = (left+right)/2;
