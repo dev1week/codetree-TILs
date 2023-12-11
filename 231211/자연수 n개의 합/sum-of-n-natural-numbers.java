@@ -15,7 +15,7 @@ public class Main {
     }
     
     static void init()throws IOException{
-    	limit = Integer.valueOf(buffer.readLine());
+    	limit = Long.valueOf(buffer.readLine());
     }
     
     
