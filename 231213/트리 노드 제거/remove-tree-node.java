@@ -39,17 +39,21 @@ public class Main {
     	init();
     	
     	
-    	
+//    	System.out.println("지우기 전 ");
+//    	printGraph();
     	//주어진 노드 지우기 
     	int target = Integer.valueOf(buffer.readLine());
     	delete(target);
     	
-    	maxDepth = 0;
+    	
+//    	System.out.println("지우고 난  ");
+//    	printGraph();
+    	
     	leafCount= 0;
     	isVisited = new boolean[n];
     	//리프노드 개수 세기 
     	isVisited[root] = true;
-    	countLeaf(root, 0);
+    	countLeaf(root);
     	
     	System.out.println(leafCount);
     }
@@ -70,22 +74,18 @@ public class Main {
     		
     	}
     }
-    static int maxDepth;
+    
     static int leafCount; 
     static boolean[] isVisited;
-    static void countLeaf(int current, int depth) {
+    static void countLeaf(int current) {
     	
     	for(int next : graph[current]) {
     		if(!isVisited[next]) {
     			isVisited[next] = true; 
-    			if(depth+1==maxDepth) {
+    			if(graph[next].size()==0) {
     				leafCount++;
-    			}else if(depth+1>maxDepth) {
-    				maxDepth = depth+1;
-    				leafCount = 1;
     			}
-    			
-    			countLeaf(next, depth+1);
+    			countLeaf(next);
     			
     		}
     	}
