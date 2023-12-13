@@ -56,12 +56,12 @@ public class Main {
     }
     
     static boolean isValidRoute() {
-    	for(int start=1; start<=maxNode; start++) {
+    	for(int start:nodes) {
     		isVisited = new boolean[maxNode+1];
     		isVisited[start] = true;
     		dfs(start);
     		
-    		if(!isAllVisited()) {
+    		if(!isAllVisited(start)) {
     			
     			return false;
     		}
@@ -70,10 +70,11 @@ public class Main {
     	return true; 
     }
     
-    static boolean isAllVisited() {
+    static boolean isAllVisited(int start) {
     	for(int node : nodes) {
+    		if(start==node) continue;
     		if(!isVisited[node]) {
-    			
+    			System.out.println(start+"->"+node);
     			return false;
     		}
     	}
@@ -84,6 +85,17 @@ public class Main {
     	
     	for(int child : graph[current]) {
     		if(!isVisited[child]) {
+    			isVisited[child] = true;
+    			dfs(child);
+    		}
+    	}
+    }
+    
+    static void printDfs(int current) {
+    	
+    	for(int child : graph[current]) {
+    		if(!isVisited[child]) {
+    			System.out.println(current);
     			isVisited[child] = true;
     			dfs(child);
     		}
@@ -123,13 +135,16 @@ public class Main {
     	
     	root = getRoot();
     	
-    
+//    	System.out.println(root);
+//    	System.out.println(isValidEdge());
+//    	System.out.println(isValidRoute());
     	if(isValidTree()) {
     		System.out.println(1);
     	}else {
     		System.out.println(0);
     	}
     	
+    
     	
     }
     
