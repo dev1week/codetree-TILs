@@ -21,9 +21,9 @@ public class Main {
 
         long result = Long.MAX_VALUE; 
         for(long number : numbers){
-            if(datas.higher(number+m)!=null){
-                if(result>datas.higher(number+m)-number){
-                    result = datas.higher(number+m)-number; 
+            if(datas.ceiling(number+m)!=null){
+                if(result>datas.ceiling(number+m)-number){
+                    result = datas.ceiling(number+m)-number; 
                 }
             }
         }
