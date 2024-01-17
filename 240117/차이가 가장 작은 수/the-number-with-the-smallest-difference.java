@@ -28,6 +28,10 @@ public class Main {
             }
         }
 
+        if(result==Long.MAX_VALUE){
+            result = -1; 
+        }
+
         System.out.println(result); 
 
     }
