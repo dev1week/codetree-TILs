@@ -32,41 +32,49 @@ public class Main {
             int node2 = Integer.parseInt(tokens.nextToken()); 
 
             graph[node1].add(node2);
-            graph[node2].add(node1);
         }    
-
-        dfs(root, -1);
+        getCenterNode(root, -1); 
+        dfs(centerNode, -1);
 
         int maxSize = 0;
         int minSize = Integer.MAX_VALUE;
-
         for(int centerChild :graph[centerNode]){
             maxSize = Math.max(maxSize, sizes[centerChild]);
             minSize = Math.min(minSize, sizes[centerChild]);
         }
         System.out.println(maxSize-minSize); 
+   
 
         //중앙 노드의 자식 중 가장 크기가 큰 서브트리의 크기와 가장 크기가 작은 서브 트리의 크기 차이를 구하기   
     }
 
-    private static void dfs(int current, int parent){
-        sizes[current] = 1; 
+    private static void  getCenterNode(int current, int parent){
 
-        if(graph[current].size()>=3&&centerNode==-1){
+        if(graph[current].size()>=2&&centerNode==-1){
             centerNode = current; 
         }
 
-        if(graph[current].size()==1&&centerNode==-1){
+        if(graph[current].size()==0&&centerNode==-1){
             centerNode = current;
         }
 
         for(int child: graph[current]){
             if(parent==child) continue; 
             dfs(child, current);
-            sizes[current] += sizes[child];
+            
         }
+        
     }
 
+    private static void  dfs(int current, int parent){
+        sizes[current] = 1; 
+
+        for(int child: graph[current]){
+            if(parent==child) continue; 
+            dfs(child, current);
+            sizes[current] += sizes[child]; 
+        }
+    }
 
 
 
