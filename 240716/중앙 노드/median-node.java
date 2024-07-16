@@ -54,7 +54,7 @@ public class Main {
             centerNode = current; 
         }
 
-        if(graph[current].size()==0&&centerNode==-1){
+        if(graph[current].size()==1&&centerNode==-1){
             centerNode = current;
         }
 
