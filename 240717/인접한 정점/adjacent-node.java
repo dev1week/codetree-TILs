@@ -58,7 +58,7 @@ public class Main {
             dfs(child, current);
 
             d[current][YES] += d[child][NO];
-            d[current][NO] += d[child][YES]; 
+            d[current][NO] += Math.max(d[child][YES], d[child][NO]); 
         }
     }
 }
