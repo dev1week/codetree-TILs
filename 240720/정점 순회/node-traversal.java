@@ -45,10 +45,9 @@ public class Main {
         for(int node=1; node<=numOfNodes; node++){
             if(node==root) continue; 
 
-            if(distanceFromLeaf[node]>=limit) result+=2;
+            if(distanceFromLeaf[node]>limit) result+=2;
 
         }
-
         
 
         System.out.println(result);
@@ -56,17 +55,19 @@ public class Main {
 
 
     static void dfs(int current, int parent){
-        int minDistance = Integer.MAX_VALUE; 
+        int maxDistance = 0;
         for(int child : graph[current]){
             if(child==parent) continue; 
 
             dfs(child, current); 
-            minDistance = Math.min(distanceFromLeaf[child], minDistance);
+            maxDistance = Math.max(distanceFromLeaf[child], maxDistance);
         }
 
-        if(minDistance!=Integer.MAX_VALUE) {
-            distanceFromLeaf[current] = minDistance+1;
-        }
+        
+        
+        distanceFromLeaf[current] = maxDistance+1;
+        
+        
 
     }
 }
