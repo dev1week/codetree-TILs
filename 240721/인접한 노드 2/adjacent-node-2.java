@@ -47,7 +47,7 @@ public class Main {
 
         StringBuilder result = new StringBuilder(); 
         result.append(Math.max(d[1][YES], d[1][NO])).append("\n");
-        Collection.sort(route);
+        Collections.sort(route);
 
         for(int node : route){
             result.append(node).append(" ");
