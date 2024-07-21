@@ -72,11 +72,14 @@ public class Main {
     //distance2[i] i를 경로로 하는 경우에서 최대 값 
     //distance2[i] = nodes[i] + Math.max(distance[left], 0 ) + Math.max(distance[right], 0 );
     private static void dfs2(int current, int parent){
+        
         distance2[current] = nodes[current]; 
 
         for(int child: graph[current]){
+            
             if(child==parent) continue; 
-            dfs(child, current);
+            
+            dfs2(child, current);
             distance2[current] += Math.max(distance[child], 0);
         }
 
