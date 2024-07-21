@@ -40,18 +40,19 @@ public class Main {
 
 
     private static void dfs(int current, int parent){
-        distance[current] = 0; 
+        distance[current] = nodes[current]; 
         int childTotal = 0; 
+        int maxDistance = 0; 
         for(int child :graph[current]){
             if(parent == child) continue; 
 
             dfs(child, current); 
 
-            distance[current] = Math.max(distance[current], distance[child]);
+            maxDistance = Math.max(maxDistance, distance[child]);
             childTotal+= distance[child];
         }
 
-        distance[current] = Math.max(distance[current], childTotal)+ nodes[current]; 
+        distance[current] += Math.max(maxDistance, childTotal); 
         //자식이 하나일 경우 
 
         //자식이 두개일 경우 
