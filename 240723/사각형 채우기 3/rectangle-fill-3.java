@@ -16,7 +16,7 @@ public class Main {
 
 
         for(int i=4; i<=1000; i++){
-            d[i] = d[i-1]*3 + d[i-2]*2 + d[i-3]*2;
+            d[i] = d[i-1]*2 + d[i-2]*3 + d[i-3]*2;
             d[i] %= 1000000007;
         }
         System.out.println(d[n]);
