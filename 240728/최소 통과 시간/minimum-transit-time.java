@@ -4,7 +4,7 @@ public class Main {
 
     static BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
     static StringTokenizer tokens;
-    static final long MAX_TIME = 1000000001; 
+    static final long MAX_TIME = Long.MAX_VALUE; 
 
     public static void main(String[] args)throws IOException{
         tokens = new StringTokenizer(buffer.readLine());
