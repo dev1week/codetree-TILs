@@ -59,12 +59,9 @@ public class Main {
         int cnt = 1; 
         for(int i=0; i<lines.length; i++){
             Line line = lines[i];
-            for(long test=line.start; test<=line.end; test++){
-                if(test-lastPosition>=mid){
-                    cnt++; 
-                    lastPosition = test; 
-                }
-                if(cnt>=n) break; 
+            while(lastPosition+mid <=line.end){
+                cnt++;
+                lastPosition +=mid;
             }
         }
 
