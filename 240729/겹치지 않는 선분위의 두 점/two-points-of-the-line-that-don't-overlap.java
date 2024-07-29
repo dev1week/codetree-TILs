@@ -64,6 +64,7 @@ public class Main {
                     cnt++; 
                     lastPosition = test; 
                 }
+                if(cnt>=n) break; 
             }
         }
 
