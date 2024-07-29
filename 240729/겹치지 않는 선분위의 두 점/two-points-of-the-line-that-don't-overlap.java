@@ -63,6 +63,9 @@ public class Main {
                 cnt++;
                 lastPosition = Math.max(line.start, lastPosition+mid);
             }
+            if(cnt>=n){
+                return true; 
+            }
         }
 
         return cnt>=n; 
