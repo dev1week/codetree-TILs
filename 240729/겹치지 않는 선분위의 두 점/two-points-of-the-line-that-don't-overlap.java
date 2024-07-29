@@ -61,7 +61,7 @@ public class Main {
             Line line = lines[i];
             while(lastPosition+mid <=line.end){
                 cnt++;
-                lastPosition +=mid;
+                lastPosition = Math.max(line.start, lastPosition+mid);
             }
         }
 
