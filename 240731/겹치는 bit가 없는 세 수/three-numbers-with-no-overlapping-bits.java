@@ -24,7 +24,7 @@ public class Main {
                 for(int k = j + 1; k < n; k++) {
                     // 숫자들의 비트가 겹치지 않는다면
                     // 세 숫자의 합과, 세 숫자의 or연산의 값이 같습니다.
-                    if(arr[i] + arr[j] + arr[k] == (arr[i] | arr[j] | arr[k])) {
+                    if(((arr[i]&arr[j])==0)&&((arr[j]&arr[k])==0)&&((arr[i]&arr[k])==0)) {
                         ans = Math.max(ans, arr[i] + arr[j] + arr[k]);
                     }
                 }
