@@ -14,7 +14,7 @@ public class Main {
     }
 
     private static int delete(int set, int data){
-        if(print(set,data)==1) return set;
+        if(print(set,data)==0) return set;
         return set^(1<<data);
     }
 
@@ -37,15 +37,19 @@ public class Main {
         for(int commandIdx = 0 ; commandIdx<commandNum; commandIdx++){
             tokens = new StringTokenizer(buffer.readLine());
             String command = tokens.nextToken();
-            int data = Integer.parseInt(tokens.nextToken());
+            
 
             if(command.equals("add")){
+                int data = Integer.parseInt(tokens.nextToken());
                 set = add(set, data);
             }else if(command.equals("delete")){
+                int data = Integer.parseInt(tokens.nextToken());
                 set = delete(set, data);
             }else if(command.equals("print")){
+                int data = Integer.parseInt(tokens.nextToken());
                 result.append(print(set, data)).append("\n");
             }else if(command.equals("toggle")){
+                int data = Integer.parseInt(tokens.nextToken());
                 set = toggle(set, data);
             }else if(command.equals("clear")){
                 set = clear(); 
