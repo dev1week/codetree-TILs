@@ -53,7 +53,7 @@ public class Main {
 
             if(inRange(nX, nY)){
                 result = Math.max(
-                         result, Math.min(map[nX][nY], getMinMax(nX,nY)));
+                         result, Math.min(map[x][y], getMinMax(nX,nY)));
             }
         }
 
