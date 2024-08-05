@@ -5,47 +5,65 @@ public class Main {
     static BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
     static StringTokenizer tokens; 
 
-    public static void main(String[] args) throws IOException{
-        int n = Integer.parseInt(buffer.readLine()); 
+    static final int UNUSED = -1; 
 
-        int[][] arr = new int[n][n];
-        int[][] d = new int[n][n]; 
+    static int[][] map;
+    static int[][] memo; 
+    static int n; 
+
+    public static void main(String[] args) throws IOException{
+        n = Integer.parseInt(buffer.readLine());
+        
+        map = new int[n][n];
+        memo = new int[n][n];
 
         for(int x=0; x<n; x++){
             tokens = new StringTokenizer(buffer.readLine()); 
-            for(int y=0; y<n; y++){
-                arr[x][y] = Integer.parseInt(tokens.nextToken());
+            for(int y=0;y<n; y++){
+                map[x][y] = Integer.parseInt(tokens.nextToken()); 
+                memo[x][y] = UNUSED;
             }
         }
 
-        d[0][0] = arr[0][0];
-        for(int x=1; x<n; x++){
-            d[x][0] = Math.min(d[x-1][0], arr[x][0]);
+
+        System.out.println(getMinMax(0,0));
+        
+
+
+    }
+
+    private static final int[] dx = {1,0};
+    private static final int[] dy = {0,1};
+
+
+    //[x][y]
+    private static int getMinMax(int x, int y){
+        if(x==n-1&&y==n-1){
+            return memo[n-1][n-1] = map[n-1][n-1];
         }
 
-        for(int y=1; y<n; y++){
-            d[0][y] = Math.min(d[0][y-1], arr[0][y]); 
+        if(memo[x][y]!=UNUSED){
+            return memo[x][y];
         }
+        int result = 0; 
 
-        for(int x=1; x<n; x++){
-            for(int y=1; y<n; y++){
-                d[x][y] = Math.max(Math.min(d[x-1][y], arr[x][y]), Math.min(d[x][y-1], arr[x][y]));
+        for(int dir=0; dir<2; dir++){
+            int nX = x+ dx[dir];
+            int nY = y + dy[dir];
+
+            if(inRange(nX, nY)){
+                result = Math.max(
+                         result, Math.min(map[nX][nY], getMinMax(nX,nY)));
             }
         }
- 
-        System.out.println(d[n-1][n-1]);
+
+        return memo[x][y] = result; 
+
+
     }
 
-
-    private static String print(int[][] arr){
-        StringBuilder sb = new StringBuilder(); 
-
-        for(int[] ar: arr){
-            for(int a: ar){
-                sb.append(a);
-            }sb.append("\n"); 
-        }
-
-        return sb.toString(); 
+    private static boolean inRange(int x, int y){
+        return x>=0&&y>=0&&x<n&&y<n; 
     }
+
 }
