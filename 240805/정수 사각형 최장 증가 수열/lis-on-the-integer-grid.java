@@ -43,7 +43,7 @@ public class Main {
                 cells.add(new Cell(x,y,map[x][y]));
             }
         }
-
+        Collections.sort(cells); 
         for(Cell cell : cells){
 
             for(int dir=0; dir<4; dir++){
