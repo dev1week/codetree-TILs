@@ -25,7 +25,7 @@ public class Main {
 
         }
 
-        System.out.println(dp[m]==Integer.MAX_VALUE?-1:dp[m]); 
+        System.out.println(dp[m]==100001?-1:dp[m]); 
 
 
     }
