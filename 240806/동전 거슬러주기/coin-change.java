@@ -14,11 +14,12 @@ public class Main {
         
         int[] dp = new int[m+1];
 
-        Arrays.fill(dp,m+1);
+        Arrays.fill(dp,Integer.MAX_VALUE);
         dp[0] = 0;
         for(int sum=1; sum<=m; sum++){
             for(int coin :coins){
                 if(sum-coin<0) continue; 
+                if(dp[sum-coin]==Integer.MAX_VALUE) continue; 
                 dp[sum] = Math.min(dp[sum], dp[sum-coin]+1);
             }
 
