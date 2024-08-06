@@ -7,7 +7,7 @@ public class Main {
 
    
     static int[][] map; 
-
+    static final int USUSED = -1; 
     static int n;
     static int m; 
 
@@ -31,10 +31,14 @@ public class Main {
             }
         }
         d[0][0]=1; 
-        for(int x=0; x<n; x++){
-            for(int y=0; y<m; y++){
-                for(int prevX=0; prevX<=x; prevX++){
-                    for(int prevY=0; prevY<=y; prevY++){
+
+    
+
+        
+        for(int x=1; x<n; x++){
+            for(int y=1; y<m; y++){
+                for(int prevX=0; prevX<x; prevX++){
+                    for(int prevY=0; prevY<y; prevY++){
                         if(prevX==x&&prevY==y) continue; 
                         if(map[x][y]>map[prevX][prevY]){
                             d[x][y] = Math.max(d[x][y], d[prevX][prevY]+1);
