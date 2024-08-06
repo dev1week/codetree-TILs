@@ -28,7 +28,9 @@ public class Main {
             tokens = new StringTokenizer(buffer.readLine()); 
             for(int y=0; y<m; y++){
                 map[x][y] = Integer.parseInt(tokens.nextToken());
+                d[x][y] = -1; 
             }
+
         }
         d[0][0]=1; 
 
@@ -39,7 +41,7 @@ public class Main {
             for(int y=1; y<m; y++){
                 for(int prevX=0; prevX<x; prevX++){
                     for(int prevY=0; prevY<y; prevY++){
-                        if(prevX==x&&prevY==y) continue; 
+                        if(d[prevX][prevY]==-1) continue; 
                         if(map[x][y]>map[prevX][prevY]){
                             d[x][y] = Math.max(d[x][y], d[prevX][prevY]+1);
                         }
