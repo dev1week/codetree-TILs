@@ -40,7 +40,8 @@ public class Main {
         }
         int[]d = new int[n];
         Arrays.sort(lines); 
-        Arrays.fill(d,1); 
+        d[0] = 1; 
+        //Arrays.fill(d,1); 
 
         for(int i=0; i<n; i++){
             for(int j=0; j<i; j++){
