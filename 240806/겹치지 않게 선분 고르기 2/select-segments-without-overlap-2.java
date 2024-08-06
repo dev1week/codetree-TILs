@@ -39,6 +39,7 @@ public class Main {
             lines[i] = new Line(start, end); 
         }
         int[]d = new int[n];
+        Arrays.sort(lines); 
         Arrays.fill(d,1); 
 
         for(int i=0; i<n; i++){
