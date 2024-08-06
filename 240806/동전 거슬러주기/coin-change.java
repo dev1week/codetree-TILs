@@ -25,7 +25,7 @@ public class Main {
 
         }
 
-        System.out.println(dp[m]==100001?-1:dp[m]); 
+        System.out.println(dp[m]==10001?-1:dp[m]); 
 
 
     }
