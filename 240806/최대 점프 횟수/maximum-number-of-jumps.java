@@ -24,7 +24,7 @@ public class Main {
 
             }
         }
-        System.out.println(Arrays.toString(d)); 
+        //System.out.println(Arrays.toString(d)); 
         System.out.println(Arrays.stream(d).max().getAsInt()); 
         
     }
