@@ -14,7 +14,7 @@ public class Main {
         
         int[] dp = new int[m+1];
 
-        Arrays.fill(dp,Integer.MAX_VALUE);
+        Arrays.fill(dp,m+1);
         dp[0] = 0;
         for(int sum=1; sum<=m; sum++){
             for(int coin :coins){
