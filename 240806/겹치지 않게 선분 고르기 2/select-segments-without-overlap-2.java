@@ -39,7 +39,7 @@ public class Main {
             lines[i] = new Line(start, end); 
         }
         int[]d = new int[n];
-        d[0] = 1; 
+        Arrays.fill(d,1); 
 
         for(int i=0; i<n; i++){
             for(int j=0; j<i; j++){
