@@ -27,7 +27,7 @@ public class Main {
             }
         }
 
-        System.out.println(d[m]);
+        System.out.println(d[m]==101? -1:d[m]);
         
     }
 }
