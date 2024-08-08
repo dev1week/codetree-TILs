@@ -29,7 +29,7 @@ public class Main {
             }
         }
 
-        System.out.println(Arrays.toString(d)); 
+        //System.out.println(Arrays.toString(d)); 
 
         int result = Integer.MAX_VALUE;
         for(int sum=1; sum<=tot; sum++){
