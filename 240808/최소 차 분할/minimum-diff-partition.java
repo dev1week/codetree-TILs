@@ -31,11 +31,13 @@ public class Main {
         //System.out.println(Arrays.toString(d)); 
 
         int result = Integer.MAX_VALUE;
-        for(int sum=1; sum<=tot; sum++){
+        for(int sum=0; sum<=tot; sum++){
             if(d[sum]){
-                result = Math.min(result, tot-sum);
+                result = Math.min(result, Math.abs((tot-sum) -sum));
             }
         }
+        // System.out.println(tot); 
+        // System.out.println(Arrays.toString(d)); 
         System.out.println(result); 
         
         
