@@ -30,7 +30,7 @@ public class Main {
         }
 
         for(Item item : items){
-            for(int sum=0; sum<m; sum++){
+            for(int sum=0; sum<=m; sum++){
                 if(sum-item.w<0) continue;
                 if(d[sum-item.w]==-1)continue;  
                 d[sum] = Math.max(d[sum], d[sum-item.w]+item.v);
@@ -38,6 +38,5 @@ public class Main {
         }
         //System.out.println(Arrays.toString(d)); 
         System.out.println(Arrays.stream(d).max().getAsInt()); 
-
     }
 }
