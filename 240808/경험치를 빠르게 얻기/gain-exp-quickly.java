@@ -55,6 +55,10 @@ public class Main {
                 break;
             }    
         }
-        System.out.println(result); 
+
+        
+        System.out.println(result==0?-1:result); 
+        
+        
     }
 }
