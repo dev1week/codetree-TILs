@@ -17,14 +17,15 @@ public class Main {
             tot+=numbers[i]; 
         }
 
-        boolean[] d = new boolean[tot+1]; 
-        d[0] = true; 
-
+        int[] d = new int[tot+1]; 
+        
+        Arrays.fill(d, -1);
+        d[0] = 0; 
         for(int number: numbers){
             for(int sum=tot; sum>=0; sum--){
                 if(sum-number<0)continue; 
-                if(!d[sum-number])continue; 
-                d[sum] = true;
+                if(d[sum-number]==-1)continue; 
+                d[sum] = Math.max(d[sum], d[sum-number]+1);
             }
         }
 
@@ -32,7 +33,7 @@ public class Main {
 
         int result = Integer.MAX_VALUE;
         for(int sum=0; sum<=tot; sum++){
-            if(d[sum]){
+            if(d[sum]!=-1){
                 result = Math.min(result, Math.abs((tot-sum) -sum));
             }
         }
