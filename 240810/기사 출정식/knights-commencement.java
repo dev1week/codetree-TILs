@@ -34,8 +34,8 @@ public class Main {
         
 
         int[] ids = Arrays.stream(buffer.readLine().split("\\s++")).mapToInt(Integer::parseInt).toArray(); 
-        for(int i=1; i<=Arrays.stream(ids).max().getAsInt(); i++){
-            knights.put(i, new Knight(i));
+        for(int id : ids){
+            knights.put(id, new Knight(id)); 
         }
 
         for(int i=0; i<n-1; i++){
