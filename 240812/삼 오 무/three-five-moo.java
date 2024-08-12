@@ -23,15 +23,13 @@ public class Main {
             int mid = (l+h+1)/2; 
             int cnt = getNumberCnt(mid);
             //System.out.println(mid+" "+cnt); 
-            if(cnt==n){
-                return mid; 
-            }else if(cnt<n){
+            if(cnt<=n){
                 l = mid; 
             }else if(cnt>n){
                 h = mid-1; 
             }
         }
-        return Math.min(l,h);
+        return l;
     }
 
     private static int getNumberCnt(int number){
