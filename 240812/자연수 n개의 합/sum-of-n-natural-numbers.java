@@ -9,19 +9,21 @@ public class Main {
 
         long l = 0;
         long h = s; 
+        long result = 0; 
         
         while(h>l){
             long mid = (l+h+1)/2;
 
             if(isValid(mid, s)){
                 l = mid;
+                result = Math.max(result, mid);
             }else{
                 h = mid-1;
             }
         }
             
 
-        System.out.println(h); 
+        System.out.println(result); 
     }
 
     private static boolean isValid(long mid, long limit){
