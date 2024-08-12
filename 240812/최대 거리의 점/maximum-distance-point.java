@@ -17,6 +17,8 @@ public class Main {
             points[i] = Long.parseLong(buffer.readLine()); 
         }
 
+        Arrays.sort(points); 
+
 
         //가장 인접한 두 물건의 거리 임의로 구하기 ->최댓값 
         long l =0;
@@ -24,7 +26,7 @@ public class Main {
 
         while(h>l){
             long mid = (l+h+1)/2; 
-            //System.out.println(mid); 
+            //System.out.println(mid+" "+isValid(mid, points, m)); 
             if(isValid(mid, points, m)){
                 l = mid; 
             }else{
