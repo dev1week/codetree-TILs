@@ -14,7 +14,7 @@ public class Main {
         long h = n*n; 
 
         while(h>l){
-            long mid = (l+h+1)/2; 
+            long mid = (l+h)/2; 
 
             if(getLessNumberCnt(mid, n)>=k){
                 h = mid;
