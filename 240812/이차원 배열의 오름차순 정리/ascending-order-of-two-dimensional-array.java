@@ -17,7 +17,7 @@ public class Main {
             long mid = (l+h)/2; 
 
             if(getLessNumberCnt(mid, n)>=k){
-                h = mid;
+                h = mid-1;
             }else{
                 l = mid+1; 
             }
