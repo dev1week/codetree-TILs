@@ -11,11 +11,11 @@ public class Main {
         long h = s; 
         long result = 0; 
         
-        while(h>l){
+        while(h>=l){
             long mid = (l+h+1)/2;
 
             if(isValid(mid, s)){
-                l = mid;
+                l = mid+1;
                 result = Math.max(result, mid);
             }else{
                 h = mid-1;
