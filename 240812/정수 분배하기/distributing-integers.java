@@ -31,6 +31,7 @@ public class Main {
     }
 
     private static boolean isValid(int mid, int[] numbers, int limit){
+        if(mid==0) return false; 
         int count = 0; 
         for(int number: numbers){
             count += number/mid;
