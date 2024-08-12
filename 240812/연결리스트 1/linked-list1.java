@@ -31,13 +31,13 @@ public class Main {
     }
 
     private static void insertNext(Node target, Node insert){
-        connect(target, insert);
         connect(insert, target.next);
+        connect(target, insert);
     }
 
     private static void insertPrev(Node target, Node insert){
+        connect(target.prev, insert);
         connect(insert, target); 
-        connect(target.prev, insert); 
     }
 
     public static void main(String[] args) throws IOException{
