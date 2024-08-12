@@ -17,7 +17,7 @@ public class Main {
         }
 
         int h = maxNum; 
-        int l = 1;
+        int l = 0;
 
         while(h>l){
             int mid = (h+l+1)/2;
