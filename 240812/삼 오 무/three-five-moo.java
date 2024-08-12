@@ -16,7 +16,6 @@ public class Main {
     }
 
     private static int binarySearch(int n){
-    
         int l = 0;
         int h = (int) 1e9; 
 
@@ -32,8 +31,7 @@ public class Main {
                 h = mid-1; 
             }
         }
-        return l;
-
+        return h;
     }
 
     private static int getNumberCnt(int number){
