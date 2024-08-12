@@ -31,7 +31,7 @@ public class Main {
                 h = mid-1; 
             }
         }
-        return h;
+        return Math.min(l,h);
     }
 
     private static int getNumberCnt(int number){
