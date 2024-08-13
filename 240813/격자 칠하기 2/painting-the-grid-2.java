@@ -21,16 +21,17 @@ public class Main {
         int n = Integer.parseInt(buffer.readLine()); 
 
         int[][] map = new int[n][n]; 
-
+        int maxNum = 0;
         for(int x=0; x<n; x++){
             tokens = new StringTokenizer(buffer.readLine()); 
             for(int y=0; y<n; y++){
                 map[x][y] = Integer.parseInt(tokens.nextToken()); 
+                maxNum = Math.max(maxNum, map[x][y]);
             }
         }    
 
         int l = 0;
-        int h = (int) 1e6; 
+        int h = maxNum; 
 
         while(h>l){
             int mid =(l+h)/2; 
