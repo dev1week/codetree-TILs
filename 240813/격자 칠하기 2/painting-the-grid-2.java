@@ -93,11 +93,11 @@ public class Main {
             for(int y=0; y<n; y++){
                 //해당 시작칸에서 최대 몇칸까지 칠할 수 있는지 판단하기         
                 result = Math.max(getCount(x,y, map,n, mid), result);
-                if(result*2>n*n) return true; 
+                if(result*2>=n*n) return true; 
             }
         }
 
-        return false;
+        return result*2>=n*n;
 
 
     }
