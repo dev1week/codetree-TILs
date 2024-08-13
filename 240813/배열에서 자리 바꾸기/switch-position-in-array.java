@@ -11,7 +11,7 @@ class Node{
     }
 
     public String toString(){
-        return this.id+" ";
+        return String.valueOf(this.id);
     }
 }
 
@@ -55,7 +55,7 @@ public class Main {
         }
 
         while(start.next!=null){
-            result.append(start);
+            result.append(start).append(" ");
             start = start.next; 
         }result.append(start);
 
