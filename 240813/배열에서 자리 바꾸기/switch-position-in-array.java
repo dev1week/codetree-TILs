@@ -51,7 +51,7 @@ public class Main {
         Node start = nodes[1];
 
         while(start.prev!=null){
-            start.prev = start;
+            start= start.prev;
         }
 
         while(start.next!=null){
