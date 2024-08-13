@@ -60,6 +60,8 @@ public class Main {
 
         while(!que.isEmpty()){
             cnt++;
+
+            if(cnt*2>=n*n) return cnt; 
             Point current = que.poll(); 
 
             for(int d=0; d<4; d++){
