@@ -33,11 +33,11 @@ public class Main {
         int l = 0;
         int h = maxNum; 
 
-        while(h>=l){
+        while(h>l){
             int mid =(l+h)/2; 
 
             if(isValid(mid, n, map)){
-                h = mid-1;
+                h = mid;
             }else{
                 l = mid+1; 
             }
