@@ -14,13 +14,16 @@ public class Main {
     static BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in)); 
     static StringTokenizer tokens; 
 
+    static boolean[][] isVisited;
+    static int[][] map; 
+
     public static void main(String[] args) throws IOException{
         
         //0~1000000중에서 최솟값 이진 탐색으로 
             //bfs 수행하여 몇개 칸을 갈 수 있는지 확인하기 
         int n = Integer.parseInt(buffer.readLine()); 
 
-        int[][] map = new int[n][n]; 
+        map = new int[n][n]; 
         int maxNum = 0;
         for(int x=0; x<n; x++){
             tokens = new StringTokenizer(buffer.readLine()); 
@@ -50,7 +53,7 @@ public class Main {
     private static int getCount(int startX, int startY, int[][] map, int n, int mid){
         int cnt = 0; 
 
-        boolean[][] isVisited = new boolean[n][n]; 
+        isVisited = new boolean[n][n]; 
 
         Queue<Point> que = new LinkedList<>(); 
 
