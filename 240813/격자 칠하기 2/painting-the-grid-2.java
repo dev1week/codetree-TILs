@@ -100,7 +100,7 @@ public class Main {
             }
         }
 
-        return result*2>=n*n;
+        return false;
 
 
     }
