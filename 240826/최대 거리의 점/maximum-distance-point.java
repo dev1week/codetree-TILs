@@ -16,8 +16,10 @@ public class Main {
         for(int i=0; i<n; i++){
             points[i] = Long.parseLong(buffer.readLine()); 
         }
+
+        Arrays.sort(points); 
         
-        long l = 0;
+        long l = 1;
         long h = points[n-1]; 
 
 
@@ -36,12 +38,15 @@ public class Main {
     private static boolean isValid(long[] points, long mid, int m, int n){
         long currentPosition = points[0]; 
         long count = 1; 
+        //System.out.println("가장 인접한 최대 길이 "+mid); 
         for(int i=1; i<n; i++){
             if(points[i]>=currentPosition+mid){
+                //System.out.println(points[i]+" "+(currentPosition+mid)); 
                 count++;
                 currentPosition = points[i];
             }
         }
+        //System.out.println(count);
         
 
         return count>=m; 
