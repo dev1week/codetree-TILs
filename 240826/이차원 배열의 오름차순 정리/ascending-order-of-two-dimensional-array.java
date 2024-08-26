@@ -23,13 +23,15 @@ public class Main {
 
         while(h>l){
             long mid = (l+h)/2; 
+            //System.out.println(mid); 
 
             int result = 0;
 
             for(int i=1; i<=n; i++){
-                result += (mid/i);
+                result += Math.min(n,(mid/i));
             }
 
+            //System.out.println(mid+"는 "+result+"번째 숫자입니다."); 
             if(result==k){
                 return mid; 
             }else if(result>k){
