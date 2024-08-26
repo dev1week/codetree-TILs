@@ -7,25 +7,26 @@ public class Main {
 
 
     public static void main(String[] args) throws IOException{
-        int n = Integer.parseInt(buffer.readLine()); 
-        long k = Integer.parseInt(buffer.readLine()); 
-
+        long n = Integer.parseInt(buffer.readLine()); 
+        long k = Long.parseLong(buffer.readLine()); 
 
         System.out.println(binarySerach(n,k));
         
     }
 
 
-    private static long binarySerach(int n, long k){
+    private static long binarySerach(long n, long k){
         long l = 1;
         long h = n*n;
 
+
+        //System.out.println(h); 
 
         while(h>l){
             long mid = (l+h)/2; 
             //System.out.println(mid); 
 
-            int result = 0;
+            long result = 0;
 
             for(int i=1; i<=n; i++){
                 result += Math.min(n,(mid/i));
