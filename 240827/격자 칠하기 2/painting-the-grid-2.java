@@ -15,6 +15,7 @@ public class Main {
     
     static int n; 
     static int[][] map; 
+    static boolean[][] isVisited;
     static int limit; 
 
     public static void main(String[] args) throws IOException{
@@ -54,10 +55,12 @@ public class Main {
         System.out.println(l); 
     }
     private static boolean isValid(int mid){
+        isVisited = new boolean[n][n]; 
         //시작점 설정하기 
             //bfs 시도하여 최대 몇칸을 색칠하는지 
         for(int x=0; x<n; x++){
             for(int y=0; y<n; y++){
+                if(isVisited[x][y])continue;
                 int count = bfs(x,y,mid);
                 // System.out.println(x+";"+y);
                 // System.out.println(mid+" "+count);
@@ -72,7 +75,7 @@ public class Main {
     private static int bfs(int startX, int startY, int mid){
         int count = 1; 
         Queue<Point> que = new LinkedList<>(); 
-        boolean[][] isVisited = new boolean[n][n]; 
+        
         isVisited[startX][startY] = true;
         que.add(new Point(startX, startY));
 
