@@ -19,16 +19,14 @@ public class Main {
 
     public static long binarySearch(long l, long h, long n){
         while(h>l){
-            long mid = (l+h+1)/2; 
+            long mid = (l+h)/2; 
 
             long order = getOrder(mid);
 
-            if(order==n){
-                return mid;
+            if(order>=n){
+                h = mid; 
             }else if(order<n){
-                l = mid;
-            }else if(order>n){
-                h = mid-1; 
+                l = mid+1;
             }
         }
         return l; 
