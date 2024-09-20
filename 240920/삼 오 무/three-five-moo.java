@@ -23,9 +23,12 @@ public class Main {
 
             long order = getOrder(mid);
 
-            if(order>=n){
-                h = mid; 
-            }else if(order<n){
+            if(order==n){
+                return mid;
+            }else if(order>n){
+                h = mid;
+            }
+            else if(order<n){
                 l = mid+1;
             }
         }
