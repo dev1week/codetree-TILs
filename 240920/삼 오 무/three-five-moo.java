@@ -11,7 +11,7 @@ public class Main {
         long n = Long.parseLong(buffer.readLine()); 
 
 
-        System.out.println(binarySearch(1, (long) 1e10, n));
+        System.out.println(binarySearch(1, Integer.MAX_VALUE, n));
 
 
         
