@@ -18,7 +18,7 @@ public class Main {
     }
 
     public static long binarySearch(long l, long h, long n){
-        while(h>=l){
+        while(h>l){
             long mid = (l+h+1)/2; 
 
             long order = getOrder(mid);
@@ -31,7 +31,7 @@ public class Main {
                 h = mid-1; 
             }
         }
-        return h; 
+        return l; 
     }
 
 
