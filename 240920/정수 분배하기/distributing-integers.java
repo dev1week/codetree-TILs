@@ -18,7 +18,7 @@ public class Main {
         }
 
         long h = (long) 1e5; 
-        long l = 1;
+        long l = 0;
 
         while(h>l){
             long mid = (h+l+1)/2; 
