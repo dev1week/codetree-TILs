@@ -31,7 +31,7 @@ public class Main {
                 h = mid-1; 
             }
         }
-        return l; 
+        return h; 
     }
 
 
