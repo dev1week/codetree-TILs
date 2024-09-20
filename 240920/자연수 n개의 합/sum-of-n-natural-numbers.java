@@ -8,7 +8,7 @@ public class Main {
         long limit = Long.parseLong(buffer.readLine()); 
 
 
-        long h = limit/2+1;
+        long h = limit;
         long l = 1; 
 
         //가능한 n을 이진탐색으로 뽑아본다. 
