@@ -30,18 +30,10 @@ public class Main {
     }
 
     private static boolean isValid(long mid, long limit){
-        int sum = 0;
+       return sum(mid)<=limit;
+    }
 
-        for(int i=1; i<=mid; i++){
-            sum +=i;
-
-            if(sum>limit){
-                return false;
-            }
-        }
-
-        return sum<=limit; 
-
-
+    private static long sum(long mid){
+        return (mid+1)*mid/2; 
     }
 }
