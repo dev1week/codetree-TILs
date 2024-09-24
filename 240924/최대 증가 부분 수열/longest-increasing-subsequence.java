@@ -19,8 +19,8 @@ public class Main {
 
         int[] dp = new int[n+1];
 
-        Arrays.fill(dp, -1);
-        dp[1] = 1; 
+        Arrays.fill(dp, 1);
+        
 
         for(int current=1; current<=n; current++){
             for(int prev=1; prev<current; prev++)
