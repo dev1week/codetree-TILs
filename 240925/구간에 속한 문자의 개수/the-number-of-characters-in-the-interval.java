@@ -31,13 +31,7 @@ public class Main {
                 }else if(data=='c'){
                     cnt[x][y][c]++;
                 }
-            }
-        }
 
-
-        for(int x=1; x<=n; x++){
-            for(int y=1; y<=m; y++){
-                
                 prefixSum[x][y][a] = prefixSum[x-1][y][a] + prefixSum[x][y-1][a] + cnt[x][y][a]-prefixSum[x-1][y-1][a];
             
                 prefixSum[x][y][b] = prefixSum[x-1][y][b] + prefixSum[x][y-1][b] + cnt[x][y][b]-prefixSum[x-1][y-1][b];;
@@ -45,6 +39,9 @@ public class Main {
                 prefixSum[x][y][c] = prefixSum[x-1][y][c] + prefixSum[x][y-1][c] + cnt[x][y][c]-prefixSum[x-1][y-1][c];;
             }
         }
+
+
+        
 
 
         StringBuilder result = new StringBuilder(); 
