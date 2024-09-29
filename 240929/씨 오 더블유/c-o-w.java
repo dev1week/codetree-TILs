@@ -47,10 +47,10 @@ public class Main {
             }
         }
         
-        int result = 0; 
+        long result = 0; 
 
         for(int i : oIdx){
-            int tmp = cL[i]*wR[i];
+            long tmp = cL[i]*wR[i];
             result += tmp; 
         }
         System.out.println(result);
