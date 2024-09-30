@@ -21,9 +21,9 @@ public class Main {
         for(int i=0; i<n; i++){
             
             //현재 i로 구간합을 구해본다. 
-            int tmp = partSum + numbers[i];
+            // int tmp = partSum + numbers[i];
             //구간합이 음수가 되었다. 
-            if(tmp<0){
+            if(partSum<0){
                 partSum = numbers[i]; 
             }else{
                 partSum += numbers[i];
