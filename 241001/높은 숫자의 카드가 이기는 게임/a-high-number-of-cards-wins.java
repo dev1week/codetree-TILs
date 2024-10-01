@@ -11,23 +11,26 @@ public class Main {
         List<Integer> bCards = new ArrayList<>(); 
 
 
-        boolean[] isACards = new boolean[2*n+1]; 
+        boolean[] isBCards = new boolean[2*n+1]; 
 
         for(int i=0; i<n; i++){
             int num = Integer.parseInt(buffer.readLine());
 
-            aCards.add(num);
-            isACards[num] = true; 
+            bCards.add(num);
+            isBCards[num] = true; 
         }
 
         for(int card=1; card<=2*n; card++){
-            if(!isACards[card]){
-                bCards.add(card);
+            if(!isBCards[card]){
+                aCards.add(card);
             }
         }
 
         Collections.sort(aCards);
         Collections.sort(bCards);
+
+        //System.out.println(aCards);
+        //System.out.println(bCards);
 
         int lastBIdx = 0; 
         int cnt = 0; 
