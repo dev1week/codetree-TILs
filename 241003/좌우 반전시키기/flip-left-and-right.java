@@ -22,13 +22,17 @@ public class Main {
         for(int i=1;i<n; i++){
             if(!numbers[i-1]){
                 numbers[i] = !numbers[i];          
-                numbers[i-1] = !numbers[i-1];          
+                numbers[i-1] = !numbers[i-1];
+                if(i!=n-1){
+                    numbers[i+1] = !numbers[i+1];
+                }
+                          
                 cnt++;
             }
 
         }
 
-        
+        //System.out.println(Arrays.toString(numbers));
 
         if(isValid(numbers)){
             System.out.println(cnt); 
