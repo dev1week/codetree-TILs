@@ -16,10 +16,11 @@ public class Main {
         for(int i=0;i<n; i++){
             jumps[i] = Integer.parseInt(tokens.nextToken());
         }
-
+        d[0] = 1; 
         for(int current=0; current<n; current++){
             for(int prev=0; prev<current; prev++){
-                if(prev+jumps[prev]>=current){
+                
+                if(prev+jumps[prev]>=current&&d[prev]!=0){
                     d[current] = Math.max(d[current], d[prev]+1); 
                 }
             }
@@ -31,9 +32,7 @@ public class Main {
             result = Math.max(dp, result); 
         }
 
-        System.out.println(result); 
-
-
+        System.out.println(result-1); 
 
         //전부 순회한다. current
             //current 이전까지 순회한다. 
