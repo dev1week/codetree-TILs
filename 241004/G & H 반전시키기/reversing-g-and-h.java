@@ -18,6 +18,8 @@ public class Main {
         if(data.charAt(0)!=target.charAt(0)){
             isPrevCharSame = false; 
             cnt++; 
+        }else{
+            isPrevCharSame = true; 
         }
 
         for(int i=1; i<n; i++){
