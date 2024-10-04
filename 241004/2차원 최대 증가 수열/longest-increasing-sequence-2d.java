@@ -25,7 +25,7 @@ public class Main {
             for(int currentY=1; currentY<m; currentY++){
                 for(int prevX=0; prevX<currentX; prevX++){
                     for(int prevY=0; prevY<currentY; prevY++){
-                        if(map[prevX][prevY]==0)continue; 
+                        if(dp[prevX][prevY]==0)continue; 
                         if(map[prevX][prevY]<map[currentX][currentY]){
                             dp[currentX][currentY] = Math.max(dp[currentX][currentY], dp[prevX][prevY]+1);
                         }
