@@ -17,8 +17,8 @@ public class Main {
 
         Arrays.fill(d, Integer.MAX_VALUE);
         d[0] = 0; 
-        for(int sum=1; sum<=m; sum++){
-            for(int coin: coins){
+        for(int coin: coins){
+            for(int sum=1; sum<=m; sum++){    
                 if(sum-coin>=0&&d[sum-coin]!=Integer.MAX_VALUE){
                     d[sum] = Math.min(d[sum], d[sum-coin]+1);
                 }
