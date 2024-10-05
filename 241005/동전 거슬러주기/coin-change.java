@@ -26,7 +26,7 @@ public class Main {
         }
         //System.out.println(Arrays.toString(coins));
         //System.out.println(Arrays.toString(d));
-        System.out.println(d[m]);
+        System.out.println(d[m]==Integer.MAX_VALUE?-1:d[m]);
 
     }
 }
