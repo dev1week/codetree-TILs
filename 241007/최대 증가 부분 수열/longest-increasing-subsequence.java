@@ -9,7 +9,7 @@ public class Main {
         int n = Integer.parseInt(buffer.readLine());
         int[] numbers = Arrays.stream(buffer.readLine().split("\\s++")).mapToInt(Integer::parseInt).toArray(); 
         int[] d = new int[n]; 
-        d[0] = 1; 
+        Arrays.fill(d,1); 
 
         for(int current=0; current<n; current++){
             for(int prev=0; prev<current; prev++){
