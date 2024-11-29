@@ -9,13 +9,13 @@ public class Main {
     public static void main(String[] args)throws IOException {
         long limit = Long.valueOf(buffer.readLine()); 
 
-        long h = limit;
+        long h = (long) Math.sqrt(2*limit);
         long l = 0; 
 
 
         while(h>l){
             long mid = (h+l+1)/2;
-
+            //System.out.println(mid); 
             if(isValid(mid, limit)){
                 l = mid; 
             }else{
