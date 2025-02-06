@@ -30,30 +30,35 @@ public class Main {
 
         addEdges(n, graph);
 
+        int[] numOfSubtreeNodesFrom =  fillNumOfSubtreeNodes(n, r, graph);
 
+        System.out.println(solveProblems(q, numOfSubtreeNodesFrom));
+
+
+    }
+
+    private static int[] fillNumOfSubtreeNodes(int n, int r, List<Integer>[] graph) {
         int[] numOfSubtreeNodesFrom = new int[n+1];
         boolean[] isVisited = new boolean[n+1];
-
         isVisited[r]=   true;
-        dfs(r,n,graph,isVisited, numOfSubtreeNodesFrom);
+        dfs(r, n, graph, isVisited, numOfSubtreeNodesFrom);
+        return numOfSubtreeNodesFrom;
+    }
 
+    private static StringBuilder solveProblems(int q, int[] numOfSubtreeNodesFrom) throws IOException {
         StringBuilder result = new StringBuilder();
-        for(int query=0; query<q; query++){
+        for(int query = 0; query< q; query++){
             int queryNode = Integer.parseInt(buffer.readLine());
             result.append(numOfSubtreeNodesFrom[queryNode]).append("\n");
         }
-
-        System.out.println(result);
-
-
+        return result;
     }
 
     private static void dfs(int current, int n, List<Integer>[] graph, boolean[] isVisited, int[] numOfSubtreeNodesFrom) {
 
         for(int child: graph[current]){
             if(!isVisited[child]){
-                isVisited[child] = true;
-                dfs(child, n, graph, isVisited, numOfSubtreeNodesFrom);
+                fillNumOfSubtreeNodes(n, child, graph, numOfSubtreeNodesFrom, isVisited);
                 isVisited[child] = false;
             }
         }
