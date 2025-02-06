@@ -30,18 +30,18 @@ public class Main {
 
         addEdges(n, graph);
 
-        int[] numOfSubtreeNodesFrom =  fillNumOfSubtreeNodes(n, r, graph);
 
-        System.out.println(solveProblems(q, numOfSubtreeNodesFrom));
+        System.out.println(solveProblems(q, getNumOfSubtreeNodesFrom(n, r, graph)));
 
 
     }
 
-    private static int[] fillNumOfSubtreeNodes(int n, int r, List<Integer>[] graph) {
-        int[] numOfSubtreeNodesFrom = new int[n+1];
-        boolean[] isVisited = new boolean[n+1];
+    private static int[] getNumOfSubtreeNodesFrom(int n, int r, List<Integer>[] graph) {
+        int[] numOfSubtreeNodesFrom = new int[n +1];
+        boolean[] isVisited = new boolean[n +1];
+
         isVisited[r]=   true;
-        dfs(r, n, graph, isVisited, numOfSubtreeNodesFrom);
+        dfs(r, n, graph,isVisited, numOfSubtreeNodesFrom);
         return numOfSubtreeNodesFrom;
     }
 
@@ -58,7 +58,8 @@ public class Main {
 
         for(int child: graph[current]){
             if(!isVisited[child]){
-                fillNumOfSubtreeNodes(n, child, graph, numOfSubtreeNodesFrom, isVisited);
+                isVisited[child] = true;
+                dfs(child, n, graph, isVisited, numOfSubtreeNodesFrom);
                 isVisited[child] = false;
             }
         }
