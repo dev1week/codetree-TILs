@@ -26,6 +26,7 @@ public class Main {
 
         for(int sIdx=0; sIdx<s.length(); sIdx++){
             if(cur.isEnd == true&&sIdx!=s.length()-1){
+                    //System.out.println(s+"는 아직 넣어야할 데이터가 있는데");
                     isPossible = true; 
             }
 
@@ -39,7 +40,9 @@ public class Main {
 
         cur.isEnd = true; 
 
-        if(cur.child != null) isPossible = true; 
+        for(TrieNode ch: cur.child){
+            if(ch!=null) isPossible = true; 
+        }
     }
 
     private static int c2i(char c){
