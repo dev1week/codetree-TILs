@@ -8,7 +8,7 @@ public class Main {
     static BufferedReader buffer = new BufferedReader(new InputStreamReader(System.in));
     static StringTokenizer tokens; 
 
-    private static final int MAX_DIST = 300001; 
+    private static final int MAX_DIST = 20000; 
 
 
     public static void main(String[] args) throws IOException{
