@@ -41,6 +41,8 @@ public class Main {
         dist[start] = 0; 
         PriorityQueue<Node> que = new PriorityQueue<>(); 
         que.add(new Node(start, 0)); 
+
+
         while(!que.isEmpty()){
             Node current = que.poll(); 
 
@@ -84,7 +86,7 @@ class Node implements Comparable<Node>{
 
     @Override 
     public int compareTo(Node o){
-        return this.dist - dist; 
+        return this.dist - o.dist; 
     }
 
 
