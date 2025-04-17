@@ -60,7 +60,7 @@ public class Main {
         StringBuilder result= new StringBuilder(); 
 
         for(int node=1; node<=n; node++){
-            result.append(dist[node]).append("\n");
+            result.append(dist[node]==MAX_DIST?-1:dist[node]).append("\n");
         }
 
         System.out.println(result); 
