@@ -62,7 +62,7 @@ class Problem implements Comparable<Problem>{
     @Override 
     public int compareTo(Problem o){
         if(this.difficulty==o.difficulty){
-            return this.difficulty-o.difficulty; 
+            return this.idx-o.idx; 
         }
         return this.difficulty - o.difficulty;
     }
