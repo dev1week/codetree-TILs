@@ -15,7 +15,7 @@ public class Main {
         //System.out.println(points); 
         for(int i=0; i<m; i++){
             int x = sc.nextInt(); 
-            Point searchPoint = new Point(x,x);
+            Point searchPoint = new Point(x,-1);
             Point removedPoint = points.ceiling(searchPoint);
             if(removedPoint!=null){
                 System.out.println(removedPoint);
