@@ -13,4 +13,6 @@ for(let i=0; i<arr.length; i++){
     cnt++;
 }
 
-console.log(sum +" "+sum/cnt);
+let avg = (sum/cnt).toFixed(1);
+
+console.log(sum +" "+avg);
