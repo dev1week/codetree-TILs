@@ -6,8 +6,8 @@ arr = arr.map(e=>Number(e));
 
 
 let sumVal = 0;
-arr.forEach((e)=>{
-    sumVal+=e;
-})
+for(let e of arr){
+    sumVal+=e; 
+}
 
-console.log(sumVal);
+console.log(sumVal); 
