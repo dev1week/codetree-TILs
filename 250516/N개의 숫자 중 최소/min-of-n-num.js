@@ -1,10 +1,11 @@
 const fs = require("fs")
 
 const MAX = Number.MAX_SAFE_INTEGER; 
-
-let numbers = fs.readFileSync(0).toString().trim().split(" ").map(Number)
+let [n, input] = fs.readFileSync(0).toString().trim().split("\n")
+let numbers = input.split(" ").map(Number)
 let result = MAX; 
 let cnt = 0; 
+
 numbers.forEach((number)=>{
     if(number<result){
         result = number; 
