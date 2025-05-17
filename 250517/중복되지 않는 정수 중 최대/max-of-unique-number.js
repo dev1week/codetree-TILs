@@ -8,10 +8,14 @@ let numbers = inputNumbers.split(" ").map(Number)
 let result = MIN; 
 numbers.forEach((number)=>{
     cnt[number]++;
-    if(cnt[number]<2){
-        if(number>result){
-            result = number; 
-        }
-    }
+    
 })
+
+
+for(let number=1; number<=1000; number++){
+    if(cnt[number]===1&&result<number){
+        result = number; 
+    }
+}
+
 console.log(result===MIN?-1:result);
