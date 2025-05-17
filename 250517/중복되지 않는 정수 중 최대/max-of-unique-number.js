@@ -14,4 +14,4 @@ numbers.forEach((number)=>{
         }
     }
 })
-console.log(result);
+console.log(result===MIN?-1:result);
