@@ -4,7 +4,7 @@ using namespace std;
 int main() {
     double a,b,c;
 
-    ci>>a>>b>>c; 
+    cin>>a>>b>>c; 
 
     cout.precision(3);
     cout<<fixed; 
