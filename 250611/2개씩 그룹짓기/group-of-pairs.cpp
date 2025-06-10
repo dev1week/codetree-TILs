@@ -14,7 +14,6 @@ int main() {
 
     sort(numbers, numbers+2*n);
 
-    int partSum = 0;
     int result = 0; 
 
     for(int i=0; i<n; i++){
