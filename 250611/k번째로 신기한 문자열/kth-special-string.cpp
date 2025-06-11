@@ -7,7 +7,7 @@ using namespace std;
 int n, k;
 string t;
 string str[100];
-
+string words[100]; 
 
 bool startsWith(string data, string pattern){
     if(data.size()<pattern.size())return false; 
@@ -23,20 +23,16 @@ bool startsWith(string data, string pattern){
 int main() {
     cin >> n >> k >> t;
     int idx = 0;
+    string data; 
     for (int i = 0; i < n; i++) {
-        string data; 
-        cin >> data;
-        if(startsWith(data, t)){
-            str[idx] = data; 
-            idx++; 
-            cout<<data; 
-            cout<<str[idx]<<endl;  
+        cin >> str[i];
+        if(startsWith(str[i], t)){
+            words[idx++] = str[i];
         }
     }
 
-    sort(str, str+n); 
-
-    cout<<str[k-1]; 
+    sort(words, words+idx); 
+    cout<<words[k-1]; 
 
     // Please write your code here.
 
