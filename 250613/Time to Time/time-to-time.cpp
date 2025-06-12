@@ -4,7 +4,7 @@ using namespace std;
 
 int a, b, c, d;
 
-int convertTime(int h, int m){
+inline int convertTime(int h, int m){
     return h*60+m; 
 }
 
