@@ -12,7 +12,12 @@ int main() {
     cin >> a >> b >> c;
 
     // Please write your code here.
-    cout<<get_time(a,b,c)-get_time(11,11,11);
+    
+    int interval = get_time(a,b,c)-get_time(11,11,11);
+
+    interval = interval<0?(-1):interval; 
+
+    cout<<interval; 
 
     return 0;
 }
