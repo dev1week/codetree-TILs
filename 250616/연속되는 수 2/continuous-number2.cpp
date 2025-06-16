@@ -12,7 +12,7 @@ int main() {
     }
 
     int prev = -1;
-    int prevCnt = 0; 
+    int prevCnt = 1; 
 
     int result = 0; 
     for(int i=0; i<N; i++){
