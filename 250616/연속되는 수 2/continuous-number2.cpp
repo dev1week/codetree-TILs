@@ -18,15 +18,12 @@ int main() {
     for(int i=0; i<N; i++){
         if(arr[i]==prev){
             prevCnt++; 
-            if(result<prevCnt){
-                result = prevCnt; 
-            }
         }else{
             prev = arr[i]; 
-            if(result<prevCnt){
-                result = prevCnt; 
-            }
             prevCnt = 1; 
+        }
+        if(result<prevCnt){
+            result = prevCnt; 
         }
     }
 
