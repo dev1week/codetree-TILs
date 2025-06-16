@@ -12,12 +12,15 @@ int main() {
     }
 
     int prev = -1;
-    int prevCnt = 1; 
+    int prevCnt = 0; 
 
     int result = 0; 
     for(int i=0; i<N; i++){
         if(arr[i]==prev){
             prevCnt++; 
+            if(result<prevCnt){
+                result = prevCnt; 
+            }
         }else{
             prev = arr[i]; 
             if(result<prevCnt){
