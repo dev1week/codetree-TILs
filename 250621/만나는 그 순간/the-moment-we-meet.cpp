@@ -25,10 +25,6 @@ vector<int> get_position(int time[], char dir[], int n){
         }
     }
 
-    for(int t=total_time; t<=1000; t++){
-        position[total_time] = current_position; 
-    }
-
 
     return position; 
     
@@ -39,6 +35,10 @@ int get_meeting_time(vector<int> position_a, vector<int> position_b){
     for(int time=1; time<=1000; time++){
         if(position_a[time]==position_b[time]){
             return time; 
+        }
+
+        if(position_a[time]==not_visited||position_b[time]==not_visited){
+            return -1; 
         }
     }
 
