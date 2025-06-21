@@ -12,7 +12,7 @@ void input(int time[], char dir[], int n){
 
 vector<int> get_position(int time[], char dir[], int n){
     //시간별 a의 위치 저장하기 
-    vector<int> position(1001, not_visited);
+    vector<int> position(1001,0);
     int total_time = 0; 
     int current_position = 0; 
     for(int i=0; i<n; i++){
@@ -25,20 +25,15 @@ vector<int> get_position(int time[], char dir[], int n){
         }
     }
 
-
     return position; 
     
 }
 
-int get_meeting_time(vector<int> position_a, vector<int> position_b){
+int get_meeting_time(const vector<int>& position_a, const vector<int>& position_b){
 
     for(int time=1; time<=1000; time++){
         if(position_a[time]==position_b[time]){
             return time; 
-        }
-
-        if(position_a[time]==not_visited||position_b[time]==not_visited){
-            return -1; 
         }
     }
 
