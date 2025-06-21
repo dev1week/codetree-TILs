@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector> 
 using namespace std;
-int not_visited = 10000001; 
+int not_visited = 1000001; 
 
 
 void input(int time[], char dir[], int n){
