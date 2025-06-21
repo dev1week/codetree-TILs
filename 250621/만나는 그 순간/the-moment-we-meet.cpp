@@ -50,11 +50,11 @@ int main() {
     cin>>n>>m; 
 
 
-    int time_a[n] = {};
-    char dir_a[n] = {}; 
+    int time_a[1001] = {};
+    char dir_a[1001] = {}; 
 
-    int time_b[m] = {};
-    char dir_b[m] = {}; 
+    int time_b[1001] = {};
+    char dir_b[1001] = {}; 
 
     input(time_a, dir_a, n); 
     input(time_b, dir_b, m); 
