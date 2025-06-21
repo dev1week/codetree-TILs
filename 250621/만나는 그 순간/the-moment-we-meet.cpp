@@ -25,6 +25,10 @@ vector<int> get_position(int time[], char dir[], int n){
         }
     }
 
+    for(int t=total_time; t<=1000; t++){
+        position[total_time] = current_position; 
+    }
+
 
     return position; 
     
