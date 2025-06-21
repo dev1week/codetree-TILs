@@ -31,14 +31,14 @@ vector<int> get_position(int time[], char dir[], int n){
 }
 
 int get_meeting_time(const vector<int>& position_a, const vector<int>& position_b){
-
     for(int time=1; time<=1000; time++){
-        if(position_a[time]==position_b[time]){
-            return time; 
-        }
         if(position_a[time]==not_visited||position_b[time]==not_visited){
             return -1; 
         }
+        if(position_a[time]==position_b[time]){
+            return time; 
+        }
+
     }
 
     return -1; 
