@@ -14,7 +14,7 @@ int main() {
     for(int i=0; i<N-2; i++){
         for(int j=i+1; j<N-1; j++){
             for(int k=j+1; k<N; k++){
-                if(A[i]<A[j]&&A[i]<A[k]&&A[j]<A[k]) cnt++; 
+                if(A[i]<=A[j]&&A[i]<=A[k]&&A[j]<=A[k]) cnt++; 
             }
         }
     }
