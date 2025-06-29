@@ -20,14 +20,13 @@ int main() {
     }
 
     // Please write your code here.
-    int result = 100301; 
+    int result = 1003010; 
     for(int start=1; start<=n; start++){
         int part_sum = 0; 
         for(int end=1; end<=n; end++){
             if(start==end)continue; 
             part_sum+= a[end]*get_dist(start, end, n);
         }
-
         result = min(part_sum, result);
     }
 
