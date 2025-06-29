@@ -10,10 +10,11 @@ bool is_valid(int n1, int n2, int n3){
     
     int offset = 10;
 
-    while(offset<=10000){
+    while(n1!=0||n2!=0||n3!=0){
         int tmp = n1%offset+n2%offset+n3%offset; 
-        offset *= 10; 
-        //cout<<tmp<<endl;
+        n1 /=10;
+        n2 /=10;
+        n3 /=10;
         if(tmp>9) return false; 
     }
 
