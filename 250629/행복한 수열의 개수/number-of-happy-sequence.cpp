@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm> 
 
 using namespace std;
 
@@ -18,7 +19,7 @@ int main() {
     for(int row=0; row<n; row++){
         int prev_num = grid[row][0]; 
         int cnt = 1; 
-        bool is_happy = false; 
+        int max_cnt = 0; 
         for(int col=1; col<n; col++){
             //연속한 경우 
             if(prev_num==grid[row][col]){
@@ -28,18 +29,19 @@ int main() {
             else{
                 cnt = 1; 
             }
-            if(cnt>=m&&!is_happy){
-                // cout<<row<<":"<<col<<endl;
-                result++;
-                is_happy = true;  
-            }
+            max_cnt = max(max_cnt, cnt);
             prev_num = grid[row][col];
         }
+
+        if(max_cnt>=m) result++; 
     }
+
+    
     // cout<<"열검사"<<endl;
     for(int col=0; col<n; col++){
         int prev_num = grid[0][col]; 
         int cnt = 1; 
+        int max_cnt = 0; 
         bool is_happy = false; 
         for(int row=1; row<n; row++){
             //연속한 경우 
@@ -50,13 +52,10 @@ int main() {
             else{
                 cnt = 1; 
             }
-            if(cnt>=m&&!is_happy){
-                // cout<<row<<":"<<col<<endl;
-                result++;
-                is_happy = true;  
-            }
+            max_cnt = max(max_cnt, cnt);
             prev_num = grid[row][col];
         }
+        if(max_cnt>=m) result++; 
     }
 
     cout<<result;
