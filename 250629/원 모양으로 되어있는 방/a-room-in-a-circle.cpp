@@ -20,7 +20,7 @@ int main() {
     }
 
     // Please write your code here.
-    int result = 10030100; 
+    int result = 1003010000; 
     for(int start=1; start<=n; start++){
         int part_sum = 0; 
         for(int end=1; end<=n; end++){
