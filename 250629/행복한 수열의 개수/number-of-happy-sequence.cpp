@@ -1,10 +1,41 @@
 #include <iostream>
-#include <algorithm> 
 
 using namespace std;
 
+int ROW = 0;
+int COL = 1; 
+
 int n, m;
 int grid[100][100];
+
+void get_seq_by(int start, int axis, int seq[]){ 
+    
+    if(axis==ROW){
+        for(int col=0; col<n; col++){
+            seq[col] = grid[start][col]; 
+        }    
+    }else{
+        for(int row=0; row<n; row++){
+            seq[row] = grid[row][start]; 
+        }    
+    }
+}
+
+bool is_happy(int seq[]){
+    int part_consecutive_cnt = 1; 
+    int result_consecutive_cnt = 0; 
+
+    for(int i=1; i<n; i++){
+        if(seq[i-1]==seq[i]){
+            part_consecutive_cnt++; 
+        }else{
+            part_consecutive_cnt = 1; 
+        }
+        result_consecutive_cnt = max(result_consecutive_cnt, part_consecutive_cnt); 
+    }
+
+    return result_consecutive_cnt>=m; 
+}
 
 int main() {
     cin >> n >> m;
@@ -14,51 +45,26 @@ int main() {
             cin >> grid[i][j];
         }
     }
+    
     int result = 0; 
-    // cout<<"행검사"<<endl;
-    for(int row=0; row<n; row++){
-        int prev_num = grid[row][0]; 
-        int cnt = 1; 
-        int max_cnt = 0; 
-        for(int col=1; col<n; col++){
-            //연속한 경우 
-            if(prev_num==grid[row][col]){
-                cnt++;    
-            }
-            //연속이 깨진 경우 
-            else{
-                cnt = 1; 
-            }
-            max_cnt = max(max_cnt, cnt);
-            prev_num = grid[row][col];
-        }
+    int seq[n] = {}; 
 
-        if(max_cnt>=m) result++; 
+    for(int row=0; row<n; row++){
+        get_seq_by(row, ROW, seq);
+        if(is_happy(seq)){
+            result++; 
+        }
     }
+    for(int col=0; col<n; col++){
+        get_seq_by(col, COL, seq); 
+        if(is_happy(seq)){
+            result++; 
+        }
+    }
+
+    cout<<result; 
 
     
-    // cout<<"열검사"<<endl;
-    for(int col=0; col<n; col++){
-        int prev_num = grid[0][col]; 
-        int cnt = 1; 
-        int max_cnt = 0; 
-        bool is_happy = false; 
-        for(int row=1; row<n; row++){
-            //연속한 경우 
-            if(prev_num==grid[row][col]){
-                cnt++; 
-            }
-            //연속이 깨진 경우 
-            else{
-                cnt = 1; 
-            }
-            max_cnt = max(max_cnt, cnt);
-            prev_num = grid[row][col];
-        }
-        if(max_cnt>=m) result++; 
-    }
-
-    cout<<result;
 
     return 0;
 }
