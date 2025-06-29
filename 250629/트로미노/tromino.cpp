@@ -48,6 +48,7 @@ int get_part_sum(int x,int y){
         int part_sum = 0; 
         for(int bX=0; bX<3; bX++){
             for(int bY=0; bY<3; bY++){
+                if(block[bX][bY]==0)continue;
                 if(in_range(x+bX,y+bY)&&block[bX][bY]==1){
                     part_sum += grid[x+bX][y+bY]; 
                 }
