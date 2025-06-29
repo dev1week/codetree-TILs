@@ -23,7 +23,7 @@ void get_seq_by(int start, int axis, int seq[]){
 
 bool is_happy(int seq[]){
     int part_consecutive_cnt = 1; 
-    int result_consecutive_cnt = 0; 
+    int result_consecutive_cnt = 1; 
 
     for(int i=1; i<n; i++){
         if(seq[i-1]==seq[i]){
