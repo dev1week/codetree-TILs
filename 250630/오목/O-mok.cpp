@@ -7,6 +7,10 @@ int board[19][19];
 const int BLACK = 1;
 const int WHITE = 2;
 
+bool in_range(int x, int y){
+    return x>=0&&x<19&&y>=0&&y<19; 
+}
+
 bool is_winner(int x, int y, int& winner_x, int& winner_y){
 
     // cout<<x<<":"<<y<<endl; 
@@ -48,14 +52,29 @@ bool is_winner(int x, int y, int& winner_x, int& winner_y){
             consecutive_cnt++; 
         }
     }
-    // cout<<"대각선으로 확인 "<<consecutive_cnt<<endl; 
 
     if(consecutive_cnt==5){
+        // cout<<"` 대각선으로 확인 "<<consecutive_cnt<<endl; 
+
         winner_x = x+2;
         winner_y = y+2; 
         return true; 
     }
 
+    consecutive_cnt = 1; 
+    for(int offset=1; offset<5; offset++){
+        if(in_range(x+offset-1, y-offset+1)&&in_range(x+offset, y-offset)&&board[x+offset-1][y-offset+1]==board[x+offset][y-offset]){
+            consecutive_cnt++; 
+        }
+    }
+
+    if(consecutive_cnt==5){
+        // cout<<"/ 대각선으로 확인 "<<consecutive_cnt<<endl; 
+
+        winner_x = x+2;
+        winner_y = y-2; 
+        return true; 
+    }
 
     return false; 
 
