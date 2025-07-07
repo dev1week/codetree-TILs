@@ -18,7 +18,6 @@ int main() {
         for(int offset=0; offset<k; offset++){
             part_sum += arr[i+offset];
         }
-        cout<<endl; 
         result = max(part_sum, result);
     }
 
