@@ -19,7 +19,7 @@ int main() {
     int result = 0; 
     for(int skip=1; skip<=N; skip++){
         int cnt = 0; 
-        for(int time=0; time<=1000; time++){
+        for(int time=1; time<=1000; time++){
             if(log[time]==skip)continue;
             if(log[time]>0)cnt++; 
         }
