@@ -20,7 +20,7 @@ int main() {
         cin >> x[i] >> y[i];
     }
 
-    int result = 210000000; 
+    int result = 2119999999; 
 
     for(int skip=0; skip<N; skip++){
         //좌하단 좌표 
