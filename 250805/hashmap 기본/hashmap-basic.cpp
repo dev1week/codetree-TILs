@@ -1,41 +1,39 @@
 #include <iostream>
 #include <string>
-#include<unordered_map>
+#include <unordered_map>
 
 using namespace std;
 
-string convert(unordered_map<int, int>::iterator& it, const unordered_map<int, int>& map){
-    return (it==map.end()?"None":to_string(it->second));
+string to_result_string(unordered_map<int, int>::const_iterator it,
+                        unordered_map<int, int>::const_iterator end) {
+    return (it == end ? "None" : to_string(it->second));
 }
 
-void action_with(unordered_map<int, int>& map, const string action, const int k){
-    if(action=="add"){
-        int v = 0;
-        cin>>v; 
-        map[k] = v; 
-    }else if(action=="find"){
-        auto it = map.find(k);
-        cout<<convert(it, map)<<endl;; 
-    }else if(action=="remove"){
-        map.erase(k); 
+void handle_action(unordered_map<int, int>& map,
+                   const string& action,
+                   int key) {
+    if (action == "add") {
+        int value;
+        cin >> value;
+        map[key] = value;
+    } else if (action == "find") {
+        cout << to_result_string(map.find(key), map.end()) << endl;
+    } else if (action == "remove") {
+        map.erase(key);
     }
 }
 
 int main() {
+    unordered_map<int, int> map;
+    int n;
+    cin >> n;
 
-    unordered_map<int, int> map; 
-
-    int n = 0;
-    cin>>n;
-
-    for(int query=0; query<n; query++){
-        string action = "";
-        int k = 0; 
-
-        cin>>action>>k; 
-        action_with(map, action, k); 
+    while (n--) {
+        string action;
+        int key;
+        cin >> action >> key;
+        handle_action(map, action, key);
     }
 
     return 0;
 }
-
