@@ -4,15 +4,18 @@
 
 using namespace std;
 
+string convert(unordered_map<int, int>::iterator& it, const unordered_map<int, int>& map){
+    return (it==map.end()?"None":to_string(it->second));
+}
 
-void action_with(unordered_map<int, int>& map, string action, int k){
+void action_with(unordered_map<int, int>& map, const string action, const int k){
     if(action=="add"){
         int v = 0;
         cin>>v; 
         map[k] = v; 
     }else if(action=="find"){
         auto it = map.find(k);
-        cout<<(it==map.end()?"None":to_string(it->second))<<endl;; 
+        cout<<convert(it, map)<<endl;; 
     }else if(action=="remove"){
         map.erase(k); 
     }
