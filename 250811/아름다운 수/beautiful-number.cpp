@@ -2,7 +2,6 @@
 #include <vector> 
 using namespace std;
 
-int result = 0; 
 
 void print(const vector<int>&seq){
     for(int num : seq){
@@ -24,17 +23,17 @@ bool is_beautiful(vector<int>&seq){
     return true; 
 }
 
-void generate_sequence(vector<int>&seq, int current, int n){
+int count_beautiful(vector<int>&seq, int current, int n){
     if(current==n){
-        if(is_beautiful(seq)){
-            result++; 
-        }
-        return; 
+        return is_beautiful(seq)?1:0; 
     }
+    int result = 0; 
     for(int next=1; next<=4; next++){
         seq[current] = next; 
-        generate_sequence(seq, current+1, n); 
+        result += count_beautiful(seq, current+1, n); 
     }
+
+    return result; 
 }
 
 int main() {
@@ -42,7 +41,7 @@ int main() {
     cin >> n;
     vector<int> sequence(n); 
     //1~4 중 n자리 순열을 구한다. 
-    generate_sequence(sequence, 0, n); 
+    int result = count_beautiful(sequence, 0, n); 
     cout<<result;
     return 0;
 }
